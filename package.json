@@ -2,7 +2,7 @@
   "name": "project_4",
   "version": "1.0.0",
   "description": "Project 4 for Web Development course taught at GSU",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "eslint": "^6.7.2",
     "express": "^4.17.1",
     "request": "^2.88.0"
   }

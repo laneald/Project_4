@@ -66,6 +66,10 @@ p {
     font-family: 'Montserrat-Light';
 }
 
+.disableH {
+    pointer-events: none;
+}
+
 /* Download Buttons */
 
 .download-button {
@@ -176,3 +180,4 @@ p {
         transform: rotate(0);
     }
 }
+

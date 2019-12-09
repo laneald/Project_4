@@ -52,11 +52,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#cta">Download</a>
                         </li>
+                        <% if (!authPass) { %>
                         <li class="nav-item">
                             <a class="nav-link" href="/sign-up">Sign-up</a>
                         </li>
+                        <% } %>
                         <li class="nav-item">
+                            <% if (authPass) { %>
+                            <a class="nav-link disableH" href="">Hello, <%= fName %> </a>
+
+                            <% } else { %>
                             <a class="nav-link" href="/sign-in">Sign-in</a>
+                            <% } %>
                         </li>
                     </ul>
 
@@ -68,10 +75,10 @@
                 <div class="col-lg-6">
                     <h1 class="big-heading">Rental car service designed especially for your convience!</h1>
                     <button type="button" class="btn btn-dark btn-lg download-button"><i class="fab fa-apple"></i>
-                        Download</button>
+                        Download our app!</button>
                     <button type="button" class="btn btn-outline-light btn-lg download-button"><i
                             class="fab fa-google-play"></i>
-                        Download</button>
+                        Download our app!</button>
                 </div>
                 <div class="col-lg-6">
                     <img class="title-image" src="images/car.png" alt="iphone-mockup">
@@ -88,20 +95,20 @@
             <div class="row">
                 <div class="feature-box col-lg-4">
                     <i class="icon fas fa-check-circle fa-4x"></i>
-                    <h3 class="feature-title">Easy to use.</h3>
-                    <p>So easy to use, even a non-driver could use it</p>
+                    <h3 class="feature-title">Trusted</h3>
+                    <p>We are known for providing the best of the best when it comes to vehicles</p>
                 </div>
 
                 <div class="feature-box col-lg-4">
                     <i class="icon fas fa-bullseye fa-4x"></i>
-                    <h3 class="feature-title">Elite Clientele</h3>
-                    <p>We have the greatest cars on the market.</p>
+                    <h3 class="feature-title">Huge Selection</h3>
+                    <p>We have a huge selection of cars ranging from luxirious to compact.</p>
                 </div>
 
                 <div class="feature-box col-lg-4">
                     <i class="icon fas fa-heart fa-4x"></i>
-                    <h3 class="feature-title">Guaranteed to work.</h3>
-                    <p>Find the car of your dream's or your money back.</p>
+                    <h3 class="feature-title">Highly Rated</h3>
+                    <p>We have received numerous positive reviews on the quality of our vehicles</p>
                 </div>
             </div>
         </div>
@@ -115,19 +122,16 @@
         <div id="testimonial-carousel" class="carousel slide" data-ride="false">
             <div class="carousel-inner">
                 <div class="carousel-item active container-fluid">
-                    <h2 class="testimonial-text">I no longer have to sniff other dogs for love. I've found the hottest
-                        Corgi on
-                        TinDog. Woof.</h2>
-                    <img class="testimonial-image" src="images/dog-img.jpg" alt="dog-profile">
-                    <em>Pebbles, New York</em>
+                    <h2 class="testimonial-text">I got to rent one of the luxurious vehicles this past Christmas and it
+                        was delightful</h2>
+                    <img class="testimonial-image" src="images/man-img.jpg" alt="dog-profile">
+                    <em>John, New York</em>
                 </div>
                 <div class="carousel-item container-fluid">
-                    <h2 class="testimonial-text">My dog used to be so lonely, but with TinDog's help, they've found the
-                        love of
-                        their
-                        life. I think.</h2>
+                    <h2 class="testimonial-text">I rented a compact sedan and I saved a lot of money on gas and the car
+                        drove wonderful!</h2>
                     <img class="testimonial-image" src="images/lady-img.jpg" alt="lady-profile">
-                    <em>Beverly, Illinois</em>
+                    <em>Susan, New Jersey</em>
                 </div>
             </div>
             <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
@@ -162,41 +166,49 @@
         <div class="row">
             <div class="pricing-column card col-lg-4 col-md-6">
                 <div class="card-header">
-                    <h3>Chihuahua</h3>
+                    <h3>Compact</h3>
                 </div>
                 <div class="card-body">
-                    <h2 class="price-text">Free</h2>
-                    <p>5 Matches Per Day</p>
-                    <p>10 Messages Per Day</p>
-                    <p>Unlimited App Usage</p>
-                    <button type="button" class="btn btn-outline-dark btn-lg btn-block">Sign Up</button>
+                    <h2 class="price-text">Starting at $59 a day</h2>
+                    <p>Up to 34 mpg</p>
+                    <p>Comes with bluetooth</p>
+                    <p>Half a tank of gas</p>
+                    <form action="/inventory1" method="POST">
+                        <button type="submit" class="btn btn-outline-dark btn-lg btn-block" name="button">View Inventory
+                        </button>
+                    </form>
                 </div>
             </div>
 
             <div class="pricing-column card col-lg-4 col-md-6">
                 <div class="card-header">
-                    <h3>Labrador</h3>
+                    <h3>Full-Size</h3>
                 </div>
                 <div class="card-body">
-                    <h2 class="price-text">$49 / mo</h2>
-                    <p>Unlimited Matches</p>
-                    <p>Unlimited Messages</p>
-                    <p>Unlimited App Usage</p>
-                    <button type="button" class="btn btn-dark btn-lg btn-block">Sign Up</button>
+                    <h2 class="price-text">Starting at $79 a day</h2>
+                    <p>Up to 28 mpg</p>
+                    <p>Comes with apple play</p>
+                    <p>Quarter tank of gas</p>
+                    <form action="/inventory2" method="POST">
+                        <button type="submit" class="btn btn-outline-dark btn-lg btn-block" name="button">View Inventory
+                        </button>
+                    </form>
                 </div>
             </div>
 
             <div class="pricing-column card col-lg-4">
                 <div class="card-header">
-                    <h3>Mastiff</h3>
+                    <h3>Luxury</h3>
                 </div>
                 <div class="card-body">
-                    <h2 class="price-text">$99 / mo</h2>
-                    <p>Pirority Listing</p>
-                    <p>Unlimited Matches</p>
-                    <p>Unlimited Messages</p>
-                    <p>Unlimited App Usage</p>
-                    <button type="button" class="btn btn-dark btn-lg btn-block">Sign Up</button>
+                    <h2 class="price-text">Starting at $99 a day</h2>
+                    <p>Up to 30 mpg</p>
+                    <p>apple music and google play music</p>
+                    <p>Full tank of gas</p>
+                    <form action="/inventory3" method="POST">
+                        <button type="submit" class="btn btn-outline-dark btn-lg btn-block" name="button">View Inventory
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -220,9 +232,9 @@
         <div class="container-fluid">
             <h3 class="big-heading">Temporarily find the car of your dreams!</h3>
             <button type="button" class="btn btn-dark btn-lg download-button"><i class="fab fa-apple"></i>
-                Download</button>
+                Download the app!</button>
             <button type="button" class="btn btn-light btn-lg download-button"><i class="fab fa-google-play"></i>
-                Download</button>
+                Download the app!</button>
         </div>
     </section>
 

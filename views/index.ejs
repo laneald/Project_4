@@ -52,16 +52,27 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#cta">Download</a>
                         </li>
-                        <% if (!authPass) { %>
+                        <% if (authPass) { %>
                         <li class="nav-item">
-                            <a class="nav-link" href="/sign-up">Sign-up</a>
-                        </li>
-                        <% } %>
-                        <li class="nav-item">
-                            <% if (authPass) { %>
-                            <a class="nav-link disableH" href="">Hello, <%= fName %> </a>
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle disabledH" href="#" role="button"
+                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">Welcome,
+                                    <%= fName %> </a>
 
-                            <% } else { %>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">View profile</a>
+                                    <a class="dropdown-item" href="#">Get help</a>
+                                    <a class="dropdown-item" href="#">Sign out</a>
+                                </div>
+                            </div>
+                        </li>
+                        <% } else { %>
+                        <a class="nav-link" href="/sign-up">Sign-up</a>
+                        <% } %>
+
+                        <li class="nav-item">
+                            <% if (!authPass) { %>
                             <a class="nav-link" href="/sign-in">Sign-in</a>
                             <% } %>
                         </li>

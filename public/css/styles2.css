@@ -37,7 +37,7 @@ p {
 /* Sections */
 
 .colored-section {
-    background-color: #ff4c68;
+    background-color: #57a99a;
     color: #fff;
 }
 
@@ -80,10 +80,10 @@ p {
 }
 
 .title-image {
-    width: 50%;
-    transform: rotate(25deg);
+    width: 100%;
+    transform: rotate(-5deg);
     position: absolute;
-    right: 30%;
+    right: 0;
 }
 
 /* Features Section */
@@ -93,12 +93,12 @@ p {
 }
 
 .icon {
-    color: #ef8172;
+    color: #76dbd1;
     margin-bottom: 1rem;
 }
 
 .icon:hover {
-    color: #ff4c68;
+    color: #57a99a;
 }
 
 .feature-title {
@@ -112,7 +112,7 @@ p {
 /* Testimonial Section */
 
 #testimonials {
-    background-color: #ef8172;
+    background-color: #76dbd1;
 }
 
 .testimonial-text {
@@ -127,7 +127,7 @@ p {
 }
 
 #press {
-    background-color: #ef8172;
+    background-color: #76dbd1;
     padding-bottom: 3%;
 }
 
@@ -152,7 +152,7 @@ p {
 }
 
 #cta {
-    background-color: #ff4c68;
+    background-color: #57a99a;
     color: #fff;
 }
 

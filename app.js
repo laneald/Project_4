@@ -3,6 +3,33 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/usersDB', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+const userSchema = new mongoose.Schema({
+    first_name: {
+        type: String,
+        required: [true, 'Please check your data entry, no first name specified']
+    },
+    last_name: {
+        type: String,
+        required: [true, 'Please check your data entry, no last name specified']
+    },
+    email: {
+        type: String,
+        required: [true, 'Please check your data entry, no email specified']
+    },
+    password: {
+        type: String,
+        required: [true, 'Please check your data entry, no password specified']
+    }
+});
+
+const User = mongoose.model('User', userSchema);
 
 
 const app = express();
@@ -24,10 +51,19 @@ app.get('/sign-up', function (req, res) {
 app.post('/sign-up', function (req, res) {
     var firstName = req.body.fName;
     var lastName = req.body.lName;
-    var email = req.body.email;
-    var password = req.body.password;
+    var mail = req.body.email;
+    var pass = req.body.password;
 
-    console.log(firstName, lastName, email, password);
+    const newUser = new User({
+        first_name: firstName,
+        last_name: lastName,
+        email: mail,
+        password: pass
+    });
+
+    newUser.save();
+
+    console.log(firstName, lastName, mail, pass);
 });
 
 app.get('/sign-in', function (req, res) {

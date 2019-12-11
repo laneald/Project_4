@@ -23,24 +23,31 @@
     </script>
 </head>
 
-<body>
+<body class="bgColor">
+    <a href='/index' class="sbtn btn btn-lg btn-primary" type="button">Return to homepage</a>
     <section class="colored-section" id="testimonials">
         <div id="testimonial-carousel" class="carousel slide" data-ride="false">
             <div class="carousel-inner">
-                <div class="carousel-item active container-fluid">
-                    <img class="testimonial-image" src="images/dog-img.jpg" alt="dog-profile">
-                    <h2 class="testimonial-text">I no longer have to sniff other dogs for love. I've found the hottest
-                        Corgi on
-                        TinDog. Woof.</h2>
-                </div>
-                <div class="carousel-item container-fluid">
-                    <h2 class="testimonial-text">My dog used to be so lonely, but with TinDog's help, they've found the
-                        love of
-                        their
-                        life. I think.</h2>
-                    <img class="testimonial-image" src="images/lady-img.jpg" alt="lady-profile">
-                    <em>Beverly, Illinois</em>
-                </div>
+                <form action="/inventory1" method="post">
+                    <div class="carousel-item active container-fluid">
+                        <img class="testimonial-image-car" src="images/blue-sedan.png" alt="blue-sedan">
+                        <h2 class="testimonial-text">2016 Nissan Altima</h2>
+                        <button class="btn btn-md btn-primary" type="submit" name="carName" value="bsedan">Add to
+                            cart</button>
+                    </div>
+                    <div class="carousel-item container-fluid">
+                        <img class="testimonial-image-car" src="images/grey-sedan.png" alt="grey-sedan">
+                        <h2 class="testimonial-text">2016 Honda Civic</h2>
+                        <button class="btn btn-md btn-primary" type="submit" name="carName" value="gsedan">Add to
+                            cart</button>
+                    </div>
+                    <div class="carousel-item container-fluid">
+                        <img class="testimonial-image-car" src="images/red-sedan.png" alt="red-sedan">
+                        <h2 class="testimonial-text">2016 Toyota Camry</h2>
+                        <button class="btn btn-md btn-primary" type="submit" name="carName" value="rsedan">Add to
+                            cart</button>
+                    </div>
+                </form>
             </div>
             <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon"></span>

@@ -1,267 +1,227 @@
-<!DOCTYPE html>
-<html>
+<%- include('header') -%>
 
-<head>
-    <meta charset="utf-8">
-    <title>Rolling Rental's</title>
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
-        integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/6334ff0bc2.js" crossorigin="anonymous"></script>
-    <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900|Ubuntu&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles2.css">
-    <!-- jQuery stylesheet -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"
-        integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous">
-    </script>
 
-</head>
 
-<body>
+<section class="colored-section" id="title">
 
-    <section class="colored-section" id="title">
+    <!-- Nav Bar -->
 
-        <!-- Nav Bar -->
+    <div class="container-fluid">
 
-        <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
 
-            <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+            <a class="navbar-brand" href="">rolling rental's</a>
 
-                <a class="navbar-brand" href="">rolling rental's</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#footer">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cta">Download</a>
+                    </li>
+                    <% if (authPass) { %>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle disabledH" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome,
+                                <%= fName %> </a>
 
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#footer">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#pricing">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#cta">Download</a>
-                        </li>
-                        <% if (authPass) { %>
-                        <li class="nav-item">
-                            <div class="dropdown">
-                                <a class="nav-link dropdown-toggle disabledH" href="#" role="button"
-                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">Welcome,
-                                    <%= fName %> </a>
-
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">View profile</a>
-                                    <a class="dropdown-item" href="#">Get help</a>
-                                    <a class="dropdown-item" href="#">Sign out</a>
-                                </div>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="/shopping-cart">View Cart</a>
+                                <a class="dropdown-item" href="#">Get help</a>
+                                <a class="dropdown-item" href="/sign-out">Sign out</a>
                             </div>
-                        </li>
-                        <% } else { %>
-                        <a class="nav-link" href="/sign-up">Sign-up</a>
+                        </div>
+                    </li>
+                    <% } else { %>
+                    <a class="nav-link" href="/sign-up">Sign-up</a>
+                    <% } %>
+
+                    <li class="nav-item">
+                        <% if (!authPass) { %>
+                        <a class="nav-link" href="/sign-in">Sign-in</a>
                         <% } %>
+                    </li>
+                </ul>
 
-                        <li class="nav-item">
-                            <% if (!authPass) { %>
-                            <a class="nav-link" href="/sign-in">Sign-in</a>
-                            <% } %>
-                        </li>
-                    </ul>
-
-                </div>
-            </nav>
-
-            <!-- Title -->
-            <div class="row">
-                <div class="col-lg-6">
-                    <h1 class="big-heading">Rental car service designed especially for your convience!</h1>
-                    <button type="button" class="btn btn-dark btn-lg download-button"><i class="fab fa-apple"></i>
-                        Download our app!</button>
-                    <button type="button" class="btn btn-outline-light btn-lg download-button"><i
-                            class="fab fa-google-play"></i>
-                        Download our app!</button>
-                </div>
-                <div class="col-lg-6">
-                    <img class="title-image" src="images/car.png" alt="iphone-mockup">
-                </div>
             </div>
-        </div>
-    </section>
+        </nav>
 
-
-    <!-- Features -->
-
-    <section class="white-section" id="features">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="feature-box col-lg-4">
-                    <i class="icon fas fa-check-circle fa-4x"></i>
-                    <h3 class="feature-title">Trusted</h3>
-                    <p>We are known for providing the best of the best when it comes to vehicles</p>
-                </div>
-
-                <div class="feature-box col-lg-4">
-                    <i class="icon fas fa-bullseye fa-4x"></i>
-                    <h3 class="feature-title">Huge Selection</h3>
-                    <p>We have a huge selection of cars ranging from luxirious to compact.</p>
-                </div>
-
-                <div class="feature-box col-lg-4">
-                    <i class="icon fas fa-heart fa-4x"></i>
-                    <h3 class="feature-title">Highly Rated</h3>
-                    <p>We have received numerous positive reviews on the quality of our vehicles</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Testimonials -->
-
-    <section class="colored-section" id="testimonials">
-
-        <div id="testimonial-carousel" class="carousel slide" data-ride="false">
-            <div class="carousel-inner">
-                <div class="carousel-item active container-fluid">
-                    <h2 class="testimonial-text">I got to rent one of the luxurious vehicles this past Christmas and it
-                        was delightful</h2>
-                    <img class="testimonial-image" src="images/man-img.jpg" alt="dog-profile">
-                    <em>John, New York</em>
-                </div>
-                <div class="carousel-item container-fluid">
-                    <h2 class="testimonial-text">I rented a compact sedan and I saved a lot of money on gas and the car
-                        drove wonderful!</h2>
-                    <img class="testimonial-image" src="images/lady-img.jpg" alt="lady-profile">
-                    <em>Susan, New Jersey</em>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-        </div>
-
-    </section>
-
-
-    <!-- Press -->
-
-    <section class="colored-section" id="press">
-        <img class="press-logo" src="images/techcrunch.png" alt="tc-logo">
-        <img class="press-logo" src="images/tnw.png" alt="tnw-logo">
-        <img class="press-logo" src="images/bizinsider.png" alt="biz-insider-logo">
-        <img class="press-logo" src="images/mashable.png" alt="mashable-logo">
-
-    </section>
-
-
-    <!-- Pricing -->
-
-    <section class="white-section" id="pricing">
-
-        <h2 class="section-heading">A Plan for Every Driver's Needs</h2>
-        <p>Simple and affordable price plans for our drivers.</p>
-
+        <!-- Title -->
         <div class="row">
-            <div class="pricing-column card col-lg-4 col-md-6">
-                <div class="card-header">
-                    <h3>Compact</h3>
-                </div>
-                <div class="card-body">
-                    <h2 class="price-text">Starting at $59 a day</h2>
-                    <p>Up to 34 mpg</p>
-                    <p>Comes with bluetooth</p>
-                    <p>Half a tank of gas</p>
-                    <form action="/inventory1" method="POST">
-                        <button type="submit" class="btn btn-outline-dark btn-lg btn-block" name="button">View Inventory
-                        </button>
-                    </form>
-                </div>
+            <div class="col-lg-6">
+                <h1 class="big-heading">Rental car service designed especially for your convience!</h1>
+                <button type="button" class="btn btn-dark btn-lg download-button"><i class="fab fa-apple"></i>
+                    Download our app!</button>
+                <button type="button" class="btn btn-outline-light btn-lg download-button"><i
+                        class="fab fa-google-play"></i>
+                    Download our app!</button>
             </div>
-
-            <div class="pricing-column card col-lg-4 col-md-6">
-                <div class="card-header">
-                    <h3>Full-Size</h3>
-                </div>
-                <div class="card-body">
-                    <h2 class="price-text">Starting at $79 a day</h2>
-                    <p>Up to 28 mpg</p>
-                    <p>Comes with apple play</p>
-                    <p>Quarter tank of gas</p>
-                    <form action="/inventory2" method="POST">
-                        <button type="submit" class="btn btn-outline-dark btn-lg btn-block" name="button">View Inventory
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="pricing-column card col-lg-4">
-                <div class="card-header">
-                    <h3>Luxury</h3>
-                </div>
-                <div class="card-body">
-                    <h2 class="price-text">Starting at $99 a day</h2>
-                    <p>Up to 30 mpg</p>
-                    <p>apple music and google play music</p>
-                    <p>Full tank of gas</p>
-                    <form action="/inventory3" method="POST">
-                        <button type="submit" class="btn btn-outline-dark btn-lg btn-block" name="button">View Inventory
-                        </button>
-                    </form>
-                </div>
+            <div class="col-lg-6">
+                <img class="title-image" src="images/car.png" alt="iphone-mockup">
             </div>
         </div>
+    </div>
+</section>
 
 
+<!-- Features -->
 
+<section class="white-section" id="features">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="feature-box col-lg-4">
+                <i class="icon fas fa-check-circle fa-4x"></i>
+                <h3 class="feature-title">Trusted</h3>
+                <p>We are known for providing the best of the best when it comes to vehicles</p>
+            </div>
 
+            <div class="feature-box col-lg-4">
+                <i class="icon fas fa-bullseye fa-4x"></i>
+                <h3 class="feature-title">Huge Selection</h3>
+                <p>We have a huge selection of cars ranging from luxirious to compact.</p>
+            </div>
 
-
-
-
-
-
-
-    </section>
-
-
-    <!-- Call to Action -->
-
-    <section class="colored-section" id="cta">
-        <div class="container-fluid">
-            <h3 class="big-heading">Temporarily find the car of your dreams!</h3>
-            <button type="button" class="btn btn-dark btn-lg download-button"><i class="fab fa-apple"></i>
-                Download the app!</button>
-            <button type="button" class="btn btn-light btn-lg download-button"><i class="fab fa-google-play"></i>
-                Download the app!</button>
+            <div class="feature-box col-lg-4">
+                <i class="icon fas fa-heart fa-4x"></i>
+                <h3 class="feature-title">Highly Rated</h3>
+                <p>We have received numerous positive reviews on the quality of our vehicles</p>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
-    <!-- Footer -->
-    <footer class="white-section" id="footer">
-        <div class="container-fluid">
-            <i class="f-icon fab fa-twitter"></i>
-            <i class="f-icon fab fa-facebook-f"></i>
-            <i class="f-icon fab fa-instagram"></i>
-            <i class="f-icon fas fa-envelope"></i>
-            <p class="f-para">© Copyright 2019 Rolling Rental's</p>
+<!-- Testimonials -->
 
-    </footer>
+<section class="colored-section" id="testimonials">
+
+    <div id="testimonial-carousel" class="carousel slide" data-ride="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active container-fluid">
+                <h2 class="testimonial-text">I got to rent one of the luxurious vehicles this past Christmas and it
+                    was delightful</h2>
+                <img class="testimonial-image" src="images/man-img.jpg" alt="dog-profile">
+                <em>John, New York</em>
+            </div>
+            <div class="carousel-item container-fluid">
+                <h2 class="testimonial-text">I rented a compact sedan and I saved a lot of money on gas and the car
+                    drove wonderful!</h2>
+                <img class="testimonial-image" src="images/lady-img.jpg" alt="lady-profile">
+                <em>Susan, New Jersey</em>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
     </div>
 
-</body>
+</section>
 
-</html>
+
+<!-- Press -->
+
+<section class="colored-section" id="press">
+    <img class="press-logo" src="images/techcrunch.png" alt="tc-logo">
+    <img class="press-logo" src="images/tnw.png" alt="tnw-logo">
+    <img class="press-logo" src="images/bizinsider.png" alt="biz-insider-logo">
+    <img class="press-logo" src="images/mashable.png" alt="mashable-logo">
+
+</section>
+
+
+<!-- Pricing -->
+
+<section class="white-section" id="pricing">
+
+    <h2 class="section-heading">A Plan for Every Driver's Needs</h2>
+    <p>Simple and affordable price plans for our drivers.</p>
+
+    <div class="row">
+        <div class="pricing-column card col-lg-4 col-md-6">
+            <div class="card-header">
+                <h3>Compact</h3>
+            </div>
+            <div class="card-body">
+                <h2 class="price-text">Starting at $59 a day</h2>
+                <p>Up to 34 mpg</p>
+                <p>Comes with bluetooth</p>
+                <p>Half a tank of gas</p>
+                <form action="/redirect" method="POST">
+                    <button type="submit" class="btn btn-outline-dark btn-lg btn-block" name="button">View Inventory
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="pricing-column card col-lg-4 col-md-6">
+            <div class="card-header">
+                <h3>Full-Size</h3>
+            </div>
+            <div class="card-body">
+                <h2 class="price-text">Starting at $79 a day</h2>
+                <p>Up to 28 mpg</p>
+                <p>Comes with apple play</p>
+                <p>Quarter tank of gas</p>
+                <form action="/inventory2" method="POST">
+                    <button type="submit" class="btn btn-outline-dark btn-lg btn-block" name="button">View Inventory
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="pricing-column card col-lg-4">
+            <div class="card-header">
+                <h3>Luxury</h3>
+            </div>
+            <div class="card-body">
+                <h2 class="price-text">Starting at $99 a day</h2>
+                <p>Up to 30 mpg</p>
+                <p>apple music and google play music</p>
+                <p>Full tank of gas</p>
+                <form action="/inventory3" method="POST">
+                    <button type="submit" class="btn btn-outline-dark btn-lg btn-block" name="button">View Inventory
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+<!-- Call to Action -->
+
+<section class="colored-section" id="cta">
+    <div class="container-fluid">
+        <h3 class="big-heading">Temporarily find the car of your dreams!</h3>
+        <button type="button" class="btn btn-dark btn-lg download-button"><i class="fab fa-apple"></i>
+            Download the app!</button>
+        <button type="button" class="btn btn-light btn-lg download-button"><i class="fab fa-google-play"></i>
+            Download the app!</button>
+    </div>
+</section>
+
+<%- include('footer') -%>
